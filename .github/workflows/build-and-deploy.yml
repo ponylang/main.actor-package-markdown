@@ -8,7 +8,9 @@ on:
 jobs:
   build-and-deploy:
     name: Build and deploy
-    runs-on:ponylang/main.actor-package-markdown-ci-standard:20190901
+    runs-on: ubuntu-latest
+    container:
+      image: ponylang/main.actor-package-markdown-ci-standard:20190901
     steps:
       - name: Hit Netlify hook
         run: curl -X POST -d {} "$NETLIFY_BUILD_AND_DEPLOY_HOOK"
