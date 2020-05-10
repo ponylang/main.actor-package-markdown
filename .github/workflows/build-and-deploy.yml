@@ -13,4 +13,6 @@ jobs:
       image: ponylang/main.actor-package-markdown-ci-standard:20190901
     steps:
       - name: Hit Netlify hook
-        run: curl -X POST -d {} "$NETLIFY_BUILD_AND_DEPLOY_HOOK"
+        run: curl -X POST -d {} "$HOOK"
+        env:
+          HOOK: ${{ secrets.NETLIFY_BUILD_AND_DEPLOY_HOOK }}
